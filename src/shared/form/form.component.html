@@ -1,0 +1,13 @@
+<h2>Cadastro</h2>
+
+<form [formGroup]="registerForm">
+    <input type="text" placeholder="Nome" formControlName="name">
+    <input placeholder="Cep" formControlName="code" mask="000000-000" (blur)='searchAddress()'>
+    <input type="text" placeholder="Cidade" formControlName="city">
+    <input type="text" placeholder="Bairro" formControlName="district">
+    <input type="text" placeholder="Logradouro" formControlName="street">
+    <input type="number" placeholder="Número" formControlName="number">
+    <input type="text" placeholder="Complemento" formControlName="complement">
+
+    <button (click)="register()">Enviar</button>
+</form>

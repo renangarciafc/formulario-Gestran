@@ -1,0 +1,23 @@
+<h2>Registros Feitos</h2>
+
+<div class="form">
+    <div class="registers" *ngIf="registerList.length">
+        <div class="register" *ngFor="let register of registerList">
+            {{ register.user.name }} - {{ register.user.code }}
+
+            <button (click)="deleteRegister(register.id, register.user.name)">Apagar</button>
+            <button (click)="edit(register.id)">Editar</button>
+
+            <div *ngIf="editSelect === register.id" >
+                <input type="text" [placeholder]="register.user.name" [(ngModel)]="name">
+                <input type="text" [placeholder]="register.user.code" [(ngModel)]="cep">
+
+                <button (click)="updateRegister(register.id, register.user.name)">Alterar</button>
+                <button (click)="closeEdit()">X</button>
+            </div>
+        </div>
+    </div>
+    <h3 *ngIf="!registerList.length">Não há registros</h3>
+
+    <button (click)="alterRouter()">Registro Novo</button>
+</div>
